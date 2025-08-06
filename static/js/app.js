@@ -63,13 +63,27 @@ function showError(message) {
   errorDiv.classList.add('fade-in');
 }
 
-function downloadChart(rollNumber) {
-  const link = document.createElement('a');
-  link.href = `https://cms.must.edu.pk:8082/Chartlet/MUST${rollNumber}AJK/FanG_Chartlet_GPChart.Jpeg`;
-  link.download = `GPA_Chart_${rollNumber}.jpg`;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+async function downloadChart(rollNumber) {
+  const url = `https://cms.must.edu.pk:8082/Chartlet/MUST${rollNumber}AJK/FanG_Chartlet_GPChart.Jpeg`;
+  try {
+    const res = await fetch(url, { mode: 'cors' });
+    const blob = await res.blob();
+    const objectUrl = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = objectUrl;
+    a.download = `GPA_Chart_${rollNumber}.jpg`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(objectUrl);
+  } catch (e) {
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `GPA_Chart_${rollNumber}.jpg`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
 }
 
 rollNumberInput.addEventListener('input', () => {
