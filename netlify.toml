@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/templates/*"
+  [headers.values]
+    Cache-Control = "public, max-age=600"
+
+[[redirects]]
+  from = "/"
+  to = "/templates/index.html"
+  status = 200

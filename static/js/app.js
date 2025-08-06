@@ -42,9 +42,9 @@ gpaForm.addEventListener('submit', async (e) => {
         const data = await response.json();
         
         if (data.success) {
-            showResult(data.image, rollNumber);
+            showResult(`https://cms.must.edu.pk:8082/Chartlet/MUST${rollNumber}AJK/FanG_Chartlet_GPChart.Jpeg`, rollNumber);
         } else {
-            showError(data.error || 'Failed to fetch GPA chart');
+            showError('Failed to fetch GPA chart');
         }
     } catch (error) {
         showError('Network error. Please check your connection and try again.');
@@ -64,7 +64,7 @@ function showResult(imageData, rollNumber) {
     loadingDiv.style.display = 'none';
     errorDiv.style.display = 'none';
     
-    gpaChartImg.src = `data:image/jpeg;base64,${imageData}`;
+    gpaChartImg.src = imageData;
     displayRollNumber.textContent = rollNumber;
     
     resultDiv.style.display = 'block';
@@ -88,7 +88,7 @@ function showError(message) {
 function downloadChart(rollNumber) {
     // Create a temporary link for download
     const link = document.createElement('a');
-    link.href = `/download/${rollNumber}`;
+    link.href = `https://cms.must.edu.pk:8082/Chartlet/MUST${rollNumber}AJK/FanG_Chartlet_GPChart.Jpeg`;
     link.download = `GPA_Chart_${rollNumber}.jpg`;
     document.body.appendChild(link);
     link.click();
