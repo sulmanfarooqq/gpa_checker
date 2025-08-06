@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MUST GPA Checker - View & Download GPA Charts</title>
     <meta name="description" content="View and download your MUST GPA charts instantly. Enter your roll number to access your academic records.">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="static/css/style.css">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📊%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -19,7 +19,7 @@
             <div class="input-section">
                 <form id="gpaForm">
                     <div class="form-group">
-                        <label for="rollNumber">Single Roll Number:</label>
+                        <label for="rollNumber">Roll Number:</label>
                         <input 
                             type="text" 
                             id="rollNumber" 
@@ -47,16 +47,16 @@
                 <div class="chart-container">
                     <img id="gpaChart" alt="GPA Chart">
                 </div>
-                <!-- <div class="actions">
-                     <button id="downloadBtn" class="btn-secondary">
+                <div class="actions">
+                    <button id="downloadBtn" class="btn-secondary">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                             <polyline points="7 10 12 15 17 10"></polyline>
                             <line x1="12" y1="15" x2="12" y2="3"></line>
                         </svg>
                         Download Chart
-                    </button> 
-                </div> -->
+                    </button>
+                </div>
             </div>
 
             <div id="error" class="error-message" style="display: none;">
@@ -69,6 +69,6 @@
         </footer>
     </div>
 
-    <script src="/static/js/app-static.js"></script>
+    <script src="static/js/app-static.js"></script>
 </body>
 </html>
