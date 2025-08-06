@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUST GPA Checker - View & Download GPA Charts</title>
+    <meta name="description" content="View and download your MUST GPA charts instantly. Enter your roll number to access your academic records.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📊%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MUST GPA Chart Viewer</h1>
+            <p class="subtitle">Enter your roll number to view and download your GPA chart instantly</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <form id="gpaForm">
+                    <div class="form-group">
+                        <label for="rollNumber">Roll Number:</label>
+                        <input 
+                            type="text" 
+                            id="rollNumber" 
+                            placeholder="FAXX-ABC-000" 
+                            required
+                            pattern="^FA\d{2}-[A-Z]{3}-\d{3}$"
+                            title="Format: FAXX-ABC-000"
+                            autocomplete="off"
+                        >
+                        <small>Format: FAXX-ABC-000 (e.g., FA23-BCS-001)</small>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <span>View GPA Chart</span>
+                    </button>
+                </form>
+            </div>
+
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Loading GPA chart...</p>
+            </div>
+
+            <div id="result" class="result-section" style="display: none;">
+                <h2>GPA Chart for <span id="displayRollNumber"></span></h2>
+                <div class="chart-container">
+                    <img id="gpaChart" alt="GPA Chart">
+                </div>
+                <div class="actions">
+                    <button id="downloadBtn" class="btn-secondary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download Chart
+                    </button>
+                </div>
+            </div>
+
+            <div id="error" class="error-message" style="display: none;">
+                <p id="errorText"></p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 MUST GPA Checker. Built for students by students.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
