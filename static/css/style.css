@@ -216,32 +216,19 @@ footer {
     .container {
         padding: 1rem;
     }
-    
-    h1 {
-        font-size: 2rem;
-    }
-    
-    .input-section, .result-section {
-        padding: 1.5rem;
-    }
-    
-    .actions {
-        flex-direction: column;
-    }
+    h1 { font-size: 2rem; }
+    .input-section, .result-section { padding: 1.5rem; }
+    .actions { flex-direction: column; }
 }
 
 /* Animation for smooth appearance */
-.fade-in {
-    animation: fadeIn 0.5s ease-in;
-}
+.fade-in { animation: fadeIn 0.5s ease-in; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+/* Session view */
+.session-form { margin-top: 24px; }
+.session-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 16px; }
+.session-card { border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px; background: #fff; }
+.session-card img { width: 100%; height: auto; display: block; border-radius: 4px; }
+.session-card h3 { font-size: 14px; margin: 6px 0 0; text-align: center; }
+.session-actions { display: flex; gap: 8px; justify-content: center; margin-top: 8px; }
